@@ -14,6 +14,7 @@
 // カスタムユーザー仕様のため使わない
 // Auth::routes();
 
+
 // ユーザー認証
 Route::get('/', 'UserController@index');
 Route::get('/signup', 'UserController@getSignup');
