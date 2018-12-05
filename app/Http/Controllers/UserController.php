@@ -61,16 +61,16 @@ class UserController extends Controller
     {
 
       $this->validate($request, User::$loginRules);
-
       // 認証処理
-      if(Auth::attempt(['email' => $request->email, 'password' => $request->password]))
+      if(Auth::attempt((['email' => $request->email, 'password' => $request->password]), true))
       {
           //ログイン成功時
-          return redirect('/profile');
+          return redirect('/');
       }{
           //ログイン失敗時
           return redirect()->back();
       }
+
     }
 
 
@@ -89,7 +89,6 @@ class UserController extends Controller
     */
     public function profile(Request $request)
     {
-        Auth::logout();
         return view('user.profile');
     }
 }
