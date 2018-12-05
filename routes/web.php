@@ -20,7 +20,8 @@ Route::get('/signup', 'UserController@getSignup');
 Route::post('/signup', 'UserController@postSignup');
 Route::get('/login', 'UserController@getLogin');
 Route::post('/login', 'UserController@postLogin');
-Route::post('/logout', 'UserController@postLogout'); //認証時のみアクセス可
+Route::post('/logout', 'UserController@postLogout');
 
 // ユーザー情報
-Route::get('/profile', 'UserController@profile');
+Route::get('/profile', 'UserController@profile')
+        ->middleware('auth');
