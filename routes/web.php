@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// カスタムユーザー仕様のため使わない
+// Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'UserController@index');
+Route::get('/signup', 'UserController@getSignup');
+Route::post('/signup', 'UserController@postSignup');
+Route::get('/login', 'UserController@getLogin');
+Route::post('/login', 'UserController@postLogin');
+Route::post('/logout', 'UserController@postLogout'); //認証時のみアクセス可
