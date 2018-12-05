@@ -14,7 +14,6 @@
 // カスタムユーザー仕様のため使わない
 // Auth::routes();
 
-
 // ユーザー認証
 Route::get('/', 'UserController@index');
 Route::get('/signup', 'UserController@getSignup');
@@ -25,4 +24,4 @@ Route::post('/logout', 'UserController@postLogout');
 
 // ユーザー情報
 Route::get('/profile', 'UserController@profile')
-        ->middleware('auth');
+        ->middleware('auth'); //ログイン時のみ閲覧できる
