@@ -10,6 +10,19 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // バリデーション
+    protected $guarded = array('id');
+    public static $signinRules = array(
+          'name' => 'required',
+          'email' => 'email',
+          'password' => 'required|min:6',
+    );
+    public static $loginRules = array(
+          'email' => 'email',
+          "password" => 'required|min:4',
+    );
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -27,4 +40,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 }
