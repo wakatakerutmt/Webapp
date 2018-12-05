@@ -1,8 +1,5 @@
 @extends('layouts.index')
-
-@section('content')
-
-<!-- formの利用とvalidation -->
+ @section('content')
   <form action="" method="post" style="width:500px; margin: 0 auto;">
     {{ csrf_field() }}
     @if($errors->has('email'))
@@ -15,5 +12,4 @@
     <label>password:<input type="password" name="password"></label><br/>
     <label><input type="submit" value="send"></label>
   </form>
-
-@endsection
+ @endsection
