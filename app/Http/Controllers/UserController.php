@@ -41,7 +41,6 @@ class UserController extends Controller
       $user->save();
 
       Auth::attempt((['email' => $request->email, 'password' => $request->password]),true);
-
       return redirect('/profile');
     }
 
@@ -82,7 +81,6 @@ class UserController extends Controller
         Auth::logout();
         return redirect('/');
     }
-
 
     /*
     *  プロフィールページ
