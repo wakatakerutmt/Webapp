@@ -59,15 +59,16 @@ class UserController extends Controller
     public function postLogin(Request $request)
     {
 
-      $this->validate($request, User::$loginRules);
+
+      $validator = Validator::make($request->all(), User::$loginRules, User::$msg);
       // 認証処理
       if(Auth::attempt((['email' => $request->email, 'password' => $request->password]), true))
       {
           //ログイン成功時
-          return redirect('/');
+          return redirect('/profile');
       }{
           //ログイン失敗時
-          return redirect()->back();
+          return redirect('/login')->withErrors($validator)->withInput();
       }
 
     }
