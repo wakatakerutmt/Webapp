@@ -1,7 +1,9 @@
-@extends('layouts.index')
+@extends('layouts.user.mypage')
 
 @section('content')
 
-プロフィール（仮）
- <a href="/">TOP</a>
+<section class="profile-contents">
+  プロフィール欄（仮）
+</section>
+
 @endsection

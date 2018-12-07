@@ -11,16 +11,21 @@ class User extends Authenticatable
     use Notifiable;
 
     // バリデーション
-    protected $guarded = array('id');
-    public static $signinRules = array(
+    protected $guarded = ['id'];
+    public static $signinRules = [
           'name' => 'required',
           'email' => 'email',
           'password' => 'required|min:6',
-    );
-    public static $loginRules = array(
+    ];
+    public static $loginRules = [
           'email' => 'email',
           "password" => 'required|min:4',
-    );
+    ];
+
+    public static $msg = [
+          'email.email' => 'メールアドレスが正しくありません',
+          'password.required' =>'パスワードが入力されていません'
+    ];
 
 
     /**
